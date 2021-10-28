@@ -63,6 +63,8 @@ fi
 echo "::set-output name=config::config.yaml"
 echo "::set-output name=binary::chkk-post-renderer"
 
-echo "CHKK_CONFIG_PATH=${chkk_config_path}" >> $GITHUB_ENV
+# echo "CHKK_CONFIG_PATH=${chkk_config_path}" >> $GITHUB_ENV
 echo "CHKK_CONFIG_FILE=${chkk_config_file}" >> $GITHUB_ENV
 echo "CHKK_ACCESS_TOKEN=${CHKK_ACCESS_TOKEN}" >> $GITHUB_ENV
+
+echo "CHKK_CONFIG_PATH=/github/workspace" >> $GITHUB_ENV
