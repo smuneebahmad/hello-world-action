@@ -60,4 +60,4 @@ fi
 
 
 
-echo "::set-output name=binary::chkk-post-renderer"
+# echo "::set-output name=binary::chkk-post-renderer"
