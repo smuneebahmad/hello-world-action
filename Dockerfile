@@ -1,6 +1,8 @@
 # Container image that runs your code
 FROM alpine:3.10
 
+RUN apk add curl
+RUN wget -O /usr/local/bin/yaml "https://github.com/mikefarah/yq/releases/download/${YAML_BIN_VERSION}/yq_linux_amd64"
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 
