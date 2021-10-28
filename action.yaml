@@ -1,6 +1,5 @@
-# action.yml
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Chkk Kubernetes Manifests'
+description: 'Check your Kubernetes manifests to catch reliability risks during deployments and upgrades'
 inputs:
   suppressions:
     description: 'List of checks to suppress'
@@ -18,21 +17,10 @@ inputs:
     description: 'Suppress failures'
     required: false
     default: "false"
-  use-custom-config:
-    description: "Use a custom configuration for chkk post renderer"
-    required: false
-    default: "false"
-  chkk-config-path:
-    description: "Path to custom chkk configuration file"
-    required: false
-    default: "${{ github.workspace }}/.chkk"
-  chkk-config-file:
-    description: "Name of custom chkk configuration file"
-    required: false
-    default: "config.yaml"
+
 outputs:
-  config: # id of output
-    description: 'The time we greeted you'
+  config:
+    description: 'chkk configuration'
   binary:
     description: 'post-renderer binary'
 runs:
@@ -43,7 +31,3 @@ runs:
     - ${{ inputs.checklists }}
     - ${{ inputs.filters }}
     - ${{ inputs.continue-on-failure }}
-    - ${{ inputs.use-custom-config }}
-    - ${{ inputs.chkk-config-path }}
-    - ${{ inputs.chkk-config-file }}
-
