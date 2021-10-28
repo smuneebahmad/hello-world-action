@@ -20,9 +20,9 @@ echo "printing current dir"
 pwd
 
 
-echo "continue_on_failure: true" > config.yaml
+# echo "continue_on_failure: true" > config.yaml
+# cat config.yaml
 
-cat config.yaml
 VERSION=$(curl -sS https://get.chkk.dev/helm/latest.txt) && curl -Lo chkk-post-renderer https://get.chkk.dev/${VERSION}/chkk-post-renderer-alpine
 chmod +x chkk-post-renderer
 
@@ -30,9 +30,7 @@ chmod +x chkk-post-renderer
 
 
 if [ ${use-custom-config} == false ]; then
-  mkdir -p ${chkk-config-path};
-  touch ${chkk-config-path}/${chkk-config-file};
-  cat <<EOF > ${chkk-config-path}/${chkk-config-file}
+  cat <<EOF > config.yaml
     continue_on_failure: ${continue-on-failure}
     checklists: []
     suppressions: []
