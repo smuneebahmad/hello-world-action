@@ -9,7 +9,10 @@ jobs:
         id: hello
         uses: smuneebahmad/hello-world-action@main
         with:
-          checklists: "chkls_00000000"
+          checklists: "chkls_00000000,chkls111111"
+          suppressions: "sup_33333,sup4444444"
+          continue_on_failure: true
+          filters: "ClusterRole.*,ServiceAccount.metadata.*"
 #         with:
 #           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
