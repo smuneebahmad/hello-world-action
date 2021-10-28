@@ -16,6 +16,9 @@ echo "$use_custom_config"
 echo "$chkk_config_path"
 echo "$chkk_config_file"
 
+echo "printing current dir"
+pwd
+
 
 # VERSION=$(curl -sS https://get.chkk.dev/helm/latest.txt) && curl -Lo chkk-post-renderer https://get.chkk.dev/${VERSION}/chkk-post-renderer-alpine
 
