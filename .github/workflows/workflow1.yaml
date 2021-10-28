@@ -9,9 +9,8 @@ jobs:
         id: hello
         uses: smuneebahmad/hello-world-action@main
         with:
-          checklists: "chkls_00000000,chkls111111"
-          suppressions: "sup_33333,sup4444444"
-          continue-on-failure: true
+          checklists: "chkls_ff349092-d781-4e61-87ac-c5cb9fcf2fab"
+          continue-on-failure: false
           filters: "ClusterRole.*,ServiceAccount.metadata.*"
 #         with:
 #           who-to-greet: 'Mona the Octocat'
