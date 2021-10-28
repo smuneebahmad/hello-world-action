@@ -29,7 +29,7 @@ if [ "$checklists" != "[]" ]; then
 fi
 
 if [ "$suppressions" != "[]" ]; then
-  IFS=","; read -a suppressionsArray <<< ${suppressions};
+  IFS=","; read -a suppressionsArray <<< "$suppressions";
   for index in "${!suppressionsArray[@]}"; do
     val=${suppressionsArray[index]};
     yq eval ".suppressions += "\"${val}\""" -i config.yaml;
@@ -38,7 +38,7 @@ fi
 
 
 if [ "$filters" != "[]" ]; then
-    IFS=","; read -a filtersArray <<< ${filters};
+    IFS=","; read -a filtersArray <<< "$filters";
     for index in "${!filtersArray[@]}"; do
       val=${filtersArray[index]};
       yq eval ".filters += "\"${val}\""" -i config.yaml;
