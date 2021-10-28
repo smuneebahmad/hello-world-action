@@ -14,9 +14,7 @@ cat <<EOF > config.yaml
   continue_on_failure: ${continue_on_failure}
   checklists: []
   suppressions: []
-  filters:
-    - Secret.data
-    - Secret.data.*
+  filters: []
 EOF
 
 
