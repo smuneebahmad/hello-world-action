@@ -30,9 +30,9 @@ inputs:
     description: "Name of custom chkk configuration file"
     required: false
     default: "config.yaml"
-outputs:
-  binary: # id of output
-    description: 'The time we greeted you'
+# outputs:
+#   binary: # id of output
+#     description: 'The time we greeted you'
 runs:
   using: 'docker'
   image: 'Dockerfile'
