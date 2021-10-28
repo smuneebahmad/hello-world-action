@@ -20,6 +20,7 @@ echo "printing current dir"
 pwd
 
 
+echo "continue_on_failure: true" > config.yaml
 # VERSION=$(curl -sS https://get.chkk.dev/helm/latest.txt) && curl -Lo chkk-post-renderer https://get.chkk.dev/${VERSION}/chkk-post-renderer-alpine
 
 # chmod +x chkk-post-renderer
@@ -63,4 +64,4 @@ fi
 
 
 
-# echo "::set-output name=binary::chkk-post-renderer"
+echo "::set-output name=config::config.yaml"
