@@ -1,7 +1,7 @@
 # Container image that runs your code
 FROM alpine:3.10
 
-# RUN apk add curl
+RUN apk add curl
 # RUN apk add --no-cache wget
 # RUN wget -O /usr/local/bin/yaml "https://github.com/mikefarah/yq/releases/download/4.13.5/yq_linux_amd64"
 

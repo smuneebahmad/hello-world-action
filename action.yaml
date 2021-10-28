@@ -33,6 +33,8 @@ inputs:
 outputs:
   config: # id of output
     description: 'The time we greeted you'
+  binary:
+    description: 'post-renderer binary'
 runs:
   using: 'docker'
   image: 'Dockerfile'

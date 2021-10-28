@@ -23,9 +23,8 @@ pwd
 echo "continue_on_failure: true" > config.yaml
 
 cat config.yaml
-# VERSION=$(curl -sS https://get.chkk.dev/helm/latest.txt) && curl -Lo chkk-post-renderer https://get.chkk.dev/${VERSION}/chkk-post-renderer-alpine
-
-# chmod +x chkk-post-renderer
+VERSION=$(curl -sS https://get.chkk.dev/helm/latest.txt) && curl -Lo chkk-post-renderer https://get.chkk.dev/${VERSION}/chkk-post-renderer-alpine
+chmod +x chkk-post-renderer
 
 # if [ ${{ use-custom-config }} == false ]; then
 #   mkdir -p ${{ chkk-config-path }};
@@ -43,3 +42,4 @@ cat config.yaml
 
 
 echo "::set-output name=config::config.yaml"
+echo "::set-output name=binary::chkk-post-renderer"
