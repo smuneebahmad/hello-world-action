@@ -11,7 +11,7 @@ jobs:
         with:
           checklists: "chkls_00000000,chkls111111"
           suppressions: "sup_33333,sup4444444"
-          continue_on_failure: true
+          continue-on-failure: true
           filters: "ClusterRole.*,ServiceAccount.metadata.*"
 #         with:
 #           who-to-greet: 'Mona the Octocat'
