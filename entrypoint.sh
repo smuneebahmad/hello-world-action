@@ -26,18 +26,21 @@ cat config.yaml
 VERSION=$(curl -sS https://get.chkk.dev/helm/latest.txt) && curl -Lo chkk-post-renderer https://get.chkk.dev/${VERSION}/chkk-post-renderer-alpine
 chmod +x chkk-post-renderer
 
-# if [ ${{ use-custom-config }} == false ]; then
-#   mkdir -p ${{ chkk-config-path }};
-#   touch ${{ chkk-config-path }}/${{ chkk-config-file }};
-#   cat <<EOF > ${{ chkk-config-path }}/${{ chkk-config-file }}
-#     continue_on_failure: ${{ continue-on-failure }}
-#     checklists: []
-#     suppressions: []
-#     filters:
-#       - Secret.data
-#       - Secret.data.*
-# EOF
-# fi
+
+
+
+if [ ${use-custom-config} == false ]; then
+  mkdir -p ${chkk-config-path};
+  touch ${chkk-config-path}/${chkk-config-file};
+  cat <<EOF > ${chkk-config-path}/${chkk-config-file}
+    continue_on_failure: ${continue-on-failure}
+    checklists: []
+    suppressions: []
+    filters:
+      - Secret.data
+      - Secret.data.*
+EOF
+fi
 
 
 
