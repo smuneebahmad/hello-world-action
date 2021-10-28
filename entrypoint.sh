@@ -1,4 +1,4 @@
-#!/bin/sh -l
+#!/bin/bash
 
 suppressions=$1
 checklists=$2
