@@ -1,0 +1,47 @@
+# action.yml
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  suppressions:
+    description: 'List of checks to suppress'
+    required: false
+    default: "[]"
+  checklists:
+    description: 'List of checks to run'
+    required: false
+    default: "[]"
+  filters:
+    description: 'List of filters to apply on Kubernetes manifest'
+    required: false
+    default: "Secret.data,Secret.data.*"
+  continue-on-failure:
+    description: 'Suppress failures'
+    required: false
+    default: "false"
+  use-custom-config:
+    description: "Use a custom configuration for chkk post renderer"
+    required: false
+    default: "false"
+  chkk-config-path:
+    description: "Path to custom chkk configuration file"
+    required: false
+    default: "${{ github.workspace }}/.chkk"
+  chkk-config-file:
+    description: "Name of custom chkk configuration file"
+    required: false
+    default: "config.yaml"
+outputs:
+  binary: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.suppressions }}
+    - ${{ inputs.checklists }}
+    - ${{ inputs.filters }}
+    - ${{ inputs.continue-on-failure }}
+    - ${{ inputs.use-custom-config }}
+    - ${{ inputs.chkk-config-path }}
+    - ${{ inputs.chkk-config-file }}
+
