@@ -29,7 +29,7 @@ chmod +x chkk-post-renderer
 
 
 
-if [ ${use-custom-config} == false ]; then
+if [ ${use_custom_config} == false ]; then
   echo ">>>using default config..."
   touch config.yaml
   cat <<EOF > config.yaml
