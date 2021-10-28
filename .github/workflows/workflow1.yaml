@@ -11,5 +11,5 @@ jobs:
 #         with:
 #           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
-#       - name: Get the output time
-#         run: echo "The time was ${{ steps.hello.outputs.binary }}"
+      - name: Get the output time
+        run: cat ${{ steps.hello.outputs.config }}
