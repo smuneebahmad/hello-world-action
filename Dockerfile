@@ -2,6 +2,7 @@
 FROM alpine:3.10
 
 RUN apk add curl
+RUN apk add --no-cache bash 
 RUN apk add --no-cache wget
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
