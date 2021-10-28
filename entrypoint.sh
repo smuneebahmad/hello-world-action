@@ -46,6 +46,15 @@ fi
 
 
 
+if [ ${checklists} != "[]" ] && [ ${use_custom_config} == false ]; then
+    IFS=","; read -a checklistsArray <<< ${checklists};
+    for index in "${!checklistsArray[@]}"; do
+        val=${checklistsArray[index]};
+        yq eval ".checklists += "\"${val}\""" -i config.yaml;
+    done;
+fi
+
+
 
 echo "::set-output name=config::config.yaml"
 echo "::set-output name=binary::chkk-post-renderer"
