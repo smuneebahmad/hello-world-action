@@ -20,7 +20,7 @@ cat <<EOF > config.yaml
 EOF
 
 
-if [ ${checklists} != "[]" ]; then
+if [ "$checklists" != "[]" ]; then
   IFS=","; read -a checklistsArray <<< "$checklists";
   for index in "${!checklistsArray[@]}"; do
     val=${checklistsArray[index]};
@@ -28,7 +28,7 @@ if [ ${checklists} != "[]" ]; then
   done;
 fi
 
-if [ ${suppressions} != "[]" ]; then
+if [ "$suppressions" != "[]" ]; then
   IFS=","; read -a suppressionsArray <<< ${suppressions};
   for index in "${!suppressionsArray[@]}"; do
     val=${suppressionsArray[index]};
@@ -37,7 +37,7 @@ if [ ${suppressions} != "[]" ]; then
 fi
 
 
-if [ ${filters} != "[]" ]; then
+if [ "$filters" != "[]" ]; then
     IFS=","; read -a filtersArray <<< ${filters};
     for index in "${!filtersArray[@]}"; do
       val=${filtersArray[index]};
