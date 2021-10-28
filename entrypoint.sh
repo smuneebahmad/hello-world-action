@@ -52,7 +52,7 @@ if [ ${suppressions} != "[]" ] && [ ${use-custom-config} == false ]; then
 fi
 
 
-if [ ${filters} != "[]" ] && [ ${use-custom-config} == false ]; then
+if [ ${filters} != "[]" ] && [ ${use_custom_config} == false ]; then
     IFS=","; read -a filtersArray <<< ${filters};
     for index in "${!filtersArray[@]}"; do
       val=${filtersArray[index]};
