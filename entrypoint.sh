@@ -47,14 +47,29 @@ fi
 
 
 if [ ${checklists} != "[]" ] && [ ${use_custom_config} == false ]; then
-          IFS=","; read -a checklistsArray <<< "$checklists";
-          for index in "${!checklistsArray[@]}"; do
-            val=${checklistsArray[index]};
-            yq eval ".checklists += "\"${val}\""" -i config.yaml;
-          done;
+  IFS=","; read -a checklistsArray <<< "$checklists";
+  for index in "${!checklistsArray[@]}"; do
+    val=${checklistsArray[index]};
+    yq eval ".checklists += "\"${val}\""" -i config.yaml;
+  done;
+fi
+
+if [ ${suppressions} != "[]" ] && [ ${use-custom-config} == false ]; then
+  IFS=","; read -a suppressionsArray <<< ${suppressions};
+  for index in "${!suppressionsArray[@]}"; do
+    val=${suppressionsArray[index]};
+    yq eval ".suppressions += "\"${val}\""" -i config.yaml;
+  done;
 fi
 
 
+if [ ${filters} != "[]" ] && [ ${use-custom-config} == false ]; then
+    IFS=","; read -a filtersArray <<< ${filters};
+    for index in "${!filtersArray[@]}"; do
+      val=${filtersArray[index]};
+      yq eval ".filters += "\"${val}\""" -i config.yaml;
+    done;
+fi
 
 echo "::set-output name=config::config.yaml"
 echo "::set-output name=binary::chkk-post-renderer"
