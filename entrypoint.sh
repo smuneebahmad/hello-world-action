@@ -47,11 +47,11 @@ fi
 
 
 if [ ${checklists} != "[]" ] && [ ${use_custom_config} == false ]; then
-    IFS=","; read -a checklistsArray <<< $checklists;
-    for index in "${!checklistsArray[@]}"; do
-        val=${checklistsArray[index]};
-        yq eval ".checklists += "\"${val}\""" -i config.yaml;
-    done;
+          IFS=","; read -a checklistsArray <<< ${checklists};
+          for index in "${!checklistsArray[@]}"; do
+            val=${checklistsArray[index]};
+            yq eval ".checklists += "\"${val}\""" -i config.yaml;
+          done;
 fi
 
 
