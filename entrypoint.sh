@@ -30,6 +30,8 @@ chmod +x chkk-post-renderer
 
 
 if [ ${use-custom-config} == false ]; then
+  echo ">>>using default config..."
+  touch config.yaml
   cat <<EOF > config.yaml
     continue_on_failure: ${continue-on-failure}
     checklists: []
@@ -38,7 +40,10 @@ if [ ${use-custom-config} == false ]; then
       - Secret.data
       - Secret.data.*
 EOF
+
+cat config.yaml
 fi
+
 
 
 
