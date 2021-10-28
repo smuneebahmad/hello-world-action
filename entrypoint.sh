@@ -21,45 +21,23 @@ pwd
 
 
 echo "continue_on_failure: true" > config.yaml
+
+cat config.yaml
 # VERSION=$(curl -sS https://get.chkk.dev/helm/latest.txt) && curl -Lo chkk-post-renderer https://get.chkk.dev/${VERSION}/chkk-post-renderer-alpine
 
 # chmod +x chkk-post-renderer
 
-if [ ${{ use-custom-config }} == false ]; then
-  mkdir -p ${{ chkk-config-path }};
-  touch ${{ chkk-config-path }}/${{ chkk-config-file }};
-  cat <<EOF > ${{ chkk-config-path }}/${{ chkk-config-file }}
-    continue_on_failure: ${{ continue-on-failure }}
-    checklists: []
-    suppressions: []
-    filters:
-      - Secret.data
-      - Secret.data.*
-EOF
-fi
-
-# if [ ${{ checklists }} != "[]" ] && [ ${{ use-custom-config }} == false ]; then
-#     IFS=","; read -a checklistsArray <<< ${{ checklists }};
-#     for index in "${!checklistsArray[@]}"; do
-#         val=${checklistsArray[index]};
-#         yq eval ".checklists += "\"${val}\""" -i ${{ chkk-config-path }}/${{ chkk-config-file }};
-#     done;
-# fi
-
-# if [ ${{ suppressions }} != "[]" ] && [ ${{ use-custom-config }} == false ]; then
-# IFS=","; read -a suppressionsArray <<< ${{ suppressions }};
-#     for index in "${!suppressionsArray[@]}"; do
-#         val=${suppressionsArray[index]};
-#         yq eval ".suppressions += "\"${val}\""" -i ${{ chkk-config-path }}/${{ chkk-config-file }};
-#     done;
-# fi
-
-# if [ ${{ filters }} != "[]" ] && [ ${{ use-custom-config }} == false ]; then
-#     IFS=","; read -a filtersArray <<< ${{ filters }};
-#     for index in "${!filtersArray[@]}"; do
-#         val=${filtersArray[index]};
-#         yq eval ".filters += "\"${val}\""" -i ${{ chkk-config-path }}/${{ chkk-config-file }};
-#     done;
+# if [ ${{ use-custom-config }} == false ]; then
+#   mkdir -p ${{ chkk-config-path }};
+#   touch ${{ chkk-config-path }}/${{ chkk-config-file }};
+#   cat <<EOF > ${{ chkk-config-path }}/${{ chkk-config-file }}
+#     continue_on_failure: ${{ continue-on-failure }}
+#     checklists: []
+#     suppressions: []
+#     filters:
+#       - Secret.data
+#       - Secret.data.*
+# EOF
 # fi
 
 
