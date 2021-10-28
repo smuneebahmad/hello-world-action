@@ -33,7 +33,7 @@ if [ ${use_custom_config} == false ]; then
   echo ">>>using default config..."
   touch config.yaml
   cat <<EOF > config.yaml
-    continue_on_failure: ${continue-on-failure}
+    continue_on_failure: ${continue_on_failure}
     checklists: []
     suppressions: []
     filters:
@@ -47,7 +47,7 @@ fi
 
 
 if [ ${checklists} != "[]" ] && [ ${use_custom_config} == false ]; then
-          IFS=","; read -a checklistsArray <<< ${checklists};
+          IFS=","; read -a checklistsArray <<< "$checklists";
           for index in "${!checklistsArray[@]}"; do
             val=${checklistsArray[index]};
             yq eval ".checklists += "\"${val}\""" -i config.yaml;
