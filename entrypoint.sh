@@ -9,17 +9,16 @@ continue_on_failure=$4
 VERSION=$(curl -sS https://get.chkk.dev/helm/latest.txt) && curl -Lo chkk-post-renderer https://get.chkk.dev/${VERSION}/chkk-post-renderer-alpine
 chmod +x chkk-post-renderer
 
-if [ ${use_custom_config} == false ]; then
-  touch config.yaml
-  cat <<EOF > config.yaml
-    continue_on_failure: ${continue_on_failure}
-    checklists: []
-    suppressions: []
-    filters:
-      - Secret.data
-      - Secret.data.*
+touch config.yaml
+cat <<EOF > config.yaml
+  continue_on_failure: ${continue_on_failure}
+  checklists: []
+  suppressions: []
+  filters:
+    - Secret.data
+    - Secret.data.*
 EOF
-fi
+
 
 if [ ${checklists} != "[]" ]; then
   IFS=","; read -a checklistsArray <<< "$checklists";
