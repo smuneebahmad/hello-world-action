@@ -43,7 +43,7 @@ if [ ${checklists} != "[]" ] && [ ${use_custom_config} == false ]; then
   done;
 fi
 
-if [ ${suppressions} != "[]" ] && [ ${use-custom-config} == false ]; then
+if [ ${suppressions} != "[]" ] && [ ${use_custom_config} == false ]; then
   IFS=","; read -a suppressionsArray <<< ${suppressions};
   for index in "${!suppressionsArray[@]}"; do
     val=${suppressionsArray[index]};
