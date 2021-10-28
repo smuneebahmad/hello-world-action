@@ -48,4 +48,4 @@ echo "::set-output name=binary::chkk-post-renderer"
 
 echo "CHKK_ACCESS_TOKEN=${CHKK_ACCESS_TOKEN}" >> $GITHUB_ENV
 echo "CHKK_CONFIG_PATH=/github/workspace" >> $GITHUB_ENV
-echo "CHKK_CONFIG_FILE=config.yaml" >> $GITHUB_ENV
+# echo "CHKK_CONFIG_FILE=config.yaml" >> $GITHUB_ENV
