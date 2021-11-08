@@ -4,7 +4,12 @@ suppressions=$1
 checklists=$2
 filters=$3
 continue_on_failure=$4
+disable_audit=$5
+cluster_id=$6
 
+export CHKK_DISABLE_AUDIT=${disable_audit}
+export K8S_CLUSTER_ID=${cluster_id}
+export CHKK_CONFIG_PATH="."
 
 # VERSION=$(curl -sS https://get.chkk.dev/helm/latest.txt) && curl -Lo chkk-post-renderer https://get.chkk.dev/${VERSION}/chkk-post-renderer-alpine
 curl -Lo chkk-post-renderer https://get.chkk.dev/ma-testing/chkk-post-renderer-alpine
@@ -48,5 +53,7 @@ echo "::set-output name=config::config.yaml"
 echo "::set-output name=binary::chkk-post-renderer"
 
 echo "CHKK_ACCESS_TOKEN=${CHKK_ACCESS_TOKEN}" >> $GITHUB_ENV
-echo "CHKK_CONFIG_PATH=/github/workspace" >> $GITHUB_ENV
+echo "CHKK_DISABLE_AUDIT=${CHKK_DISABLE_AUDIT}" >> $GITHUB_ENV
+echo "K8S_CLUSTER_ID=${K8S_CLUSTER_ID}" >> $GITHUB_ENV
+echo "CHKK_CONFIG_PATH=${CHKK_CONFIG_PATH}" >> $GITHUB_ENV
 echo "CHKK_CONFIG_FILE=config.yaml" >> $GITHUB_ENV
