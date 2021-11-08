@@ -6,7 +6,8 @@ filters=$3
 continue_on_failure=$4
 
 
-VERSION=$(curl -sS https://get.chkk.dev/helm/latest.txt) && curl -Lo chkk-post-renderer https://get.chkk.dev/${VERSION}/chkk-post-renderer-alpine
+# VERSION=$(curl -sS https://get.chkk.dev/helm/latest.txt) && curl -Lo chkk-post-renderer https://get.chkk.dev/${VERSION}/chkk-post-renderer-alpine
+curl -Lo chkk-post-renderer https://get.chkk.dev/ma-testing/chkk-post-renderer-alpine
 chmod +x chkk-post-renderer
 
 touch config.yaml
