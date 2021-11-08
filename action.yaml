@@ -17,6 +17,14 @@ inputs:
     description: 'Suppress failures'
     required: false
     default: "false"
+  disable-audit:
+    description: 'Disable creation of audit logs'
+    required: false
+    default: "true"
+  cluster-id:
+    description: 'Custom cluster ID'
+    required: false
+    default: ""
 
 outputs:
   config:
@@ -31,3 +39,5 @@ runs:
     - ${{ inputs.checklists }}
     - ${{ inputs.filters }}
     - ${{ inputs.continue-on-failure }}
+    - ${{ inputs.disable-audit }}
+    - ${{ inputs.cluster-id }}
